@@ -2,51 +2,47 @@ const { HashRouter, NavLink, Route, browserHistory } = ReactRouterDOM;
 const { CSSTransition } = ReactTransitionGroup;
 
 const routes = [
-  { path: '/youtubeList', Component: App },
-  { path: '/about', Component: About },
-  { path: '/htmlCss', Component: HtmlCss },
-  { path: '/javaScript', Component: JavaScript },
-  { path: '/reactPlayList', Component: ReactPlayList },
-  { path: '/jQueryPlayList', Component: JQueryPlayList },
-  { path: '/node', Component: Node },
-  { path: '/phpList', Component: Php },
-  { path: '/python', Component: Python },
-  { path: '/codeInterview', Component: CodeInterview },
-  { path: '/comments', Component: Comments }
+  { path: "/youtubeList", Component: App },
+  { path: "/about", Component: About },
+  { path: "/htmlCss", Component: HtmlCss },
+  { path: "/javaScript", Component: JavaScript },
+  { path: "/reactPlayList", Component: ReactPlayList },
+  { path: "/jQueryPlayList", Component: JQueryPlayList },
+  { path: "/node", Component: Node },
+  { path: "/phpList", Component: Php },
+  { path: "/python", Component: Python },
+  { path: "/codeInterview", Component: CodeInterview },
+  { path: "/comments", Component: Comments },
 ];
 
 class YouTubeRouter extends React.Component {
   state = {};
   render() {
-
-    const allRoutes = routes.map(({path, Component}) => {
-      return(
-        <Route key={ path }
-          path={ path }
-          component={ Component }
-          children={ (match) => {
-            return(
+    const allRoutes = routes.map(({ path, Component }) => {
+      return (
+        <Route
+          key={path}
+          path={path}
+          component={Component}
+          children={(match) => {
+            return (
               <CSSTransition
-                in={ match != null }
-                timeout={ 1000 }
+                in={match != null}
+                timeout={1000}
                 classNames="test"
               >
-                <div className="cards">
-                  { Component }
-                </div>
+                <div className="cards">{Component}</div>
               </CSSTransition>
-            )}
-          }
+            );
+          }}
         />
       );
     });
-      
-    console.log(allRoutes);
 
     return (
       <HashRouter history={browserHistory}>
         <Header />
-        { allRoutes }
+        {allRoutes}
         <Footer />
       </HashRouter>
 

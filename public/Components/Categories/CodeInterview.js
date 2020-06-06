@@ -1,5 +1,3 @@
-console.log("Ciao React Junkies");
-
 class CodeInterview extends React.Component {
   state = {
     baseURL: "https://www.googleapis.com/youtube/v3/playlistItems?part=",
@@ -8,12 +6,12 @@ class CodeInterview extends React.Component {
     playlistId: "playlistId=" + "PLWKjhJtqVAblv09G3sFgRMSeR0jnKQmJ9",
     apikey: "&key=" + "AIzaSyCIETFoL5hBS644jAwQ7vx_79ogETBt4nE",
     videoIds: [],
-    finalURL: ""
+    finalURL: "",
   };
 
   // CodeInterview = PLWKjhJtqVAblv09G3sFgRMSeR0jnKQmJ9
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   };
 
@@ -27,22 +25,21 @@ class CodeInterview extends React.Component {
       this.state.apikey;
 
     fetch(finalURL)
-      .then(response => response.json())
-      .then(responseJson => {
-        console.log(responseJson);
+      .then((response) => response.json())
+      .then((responseJson) => {
         const videoIds = responseJson.items.map(
-          obj =>
+          (obj) =>
             "https://www.youtube.com/embed/" + obj.snippet.resourceId.videoId
         );
         this.setState({ videoIds });
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   };
 
   render() {
-    console.log(this.state.videoIds);
+    console.log("videos Id: ", this.state.videoIds);
     return (
       <React.Fragment>
         <div className="frames-container">

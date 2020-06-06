@@ -1,7 +1,3 @@
-// console.log("Hello from comments!");
-
-//Comments holds user notes during a video execution
-
 class CommentBody extends React.Component {
   render() {
     return (
@@ -26,7 +22,7 @@ class CommentBody extends React.Component {
 
 class CommentContent extends React.Component {
   state = {
-    comments: this.props.data.comments
+    comments: this.props.data.comments,
   };
 
   toggleEditing = (comment, index) => {
@@ -38,17 +34,17 @@ class CommentContent extends React.Component {
       method: "PUT",
       headers: {
         Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(updateComment => updateComment.json())
-      .then(JComment => {
+      .then((updateComment) => updateComment.json())
+      .then((JComment) => {
         fetch("/youtube")
-          .then(response => response.json())
-          .then(comments => {
+          .then((response) => response.json())
+          .then((comments) => {
             this.setState({
               comments: comments,
-              editing: false
+              editing: false,
             });
           });
       });
@@ -64,12 +60,12 @@ class CommentContent extends React.Component {
               commentsId={this.props.commentsId}
             />
           ) : (
-              <EditEntryForm
-                data={this.props.data}
-                index={this.props.index}
-                commentsId={this.props.commentsId}
-              />
-            )}
+            <EditEntryForm
+              data={this.props.data}
+              index={this.props.index}
+              commentsId={this.props.commentsId}
+            />
+          )}
 
           <button
             onClick={() => {
@@ -119,17 +115,17 @@ class NewEntryForm extends React.Component {
     title: this.props.data.title,
     videoId: this.props.commentsId,
     date: this.props.data.date,
-    note: this.props.data.note
+    note: this.props.data.note,
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     let target = event.target;
     let id = target.id;
     let value = target.value;
     this.setState({ [id]: value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     fetch("/youtube", {
       body: JSON.stringify({
@@ -137,26 +133,26 @@ class NewEntryForm extends React.Component {
         videoId: this.state.videoId,
         date: this.state.date,
         note: this.state.note,
-        commentsId: this.props.commentsId
+        commentsId: this.props.commentsId,
       }),
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(createdComment => {
+      .then((createdComment) => {
         return createdComment.json();
       })
-      .then(comment => {
+      .then((comment) => {
         this.setState({
           title: "",
           date: "",
           note: "",
-          comments: [comment, ...this.state.comments]
+          comments: [comment, ...this.state.comments],
         });
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
   render() {
     return (
@@ -206,14 +202,14 @@ class EditEntryForm extends React.Component {
     title: this.props.data.title,
     videoId: this.props.commentsId,
     date: this.props.data.date,
-    note: this.props.data.note
+    note: this.props.data.note,
   };
 
-  handleEdit = event => {
+  handleEdit = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   };
 
-  updateComment = comment => {
+  updateComment = (comment) => {
     event.preventDefault();
     comment.editing = !comment.editing;
     console.log(comment.editing);
@@ -223,22 +219,22 @@ class EditEntryForm extends React.Component {
         videoID: this.state.videoId,
         date: this.state.date,
         note: this.state.note,
-        editing: comment.editing
+        editing: comment.editing,
       }),
       method: "PUT",
       headers: {
         Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     })
-      .then(updateComment => updateComment.json())
-      .then(JComment => {
+      .then((updateComment) => updateComment.json())
+      .then((JComment) => {
         fetch("/youtube")
-          .then(response => response.json())
-          .then(comments => {
+          .then((response) => response.json())
+          .then((comments) => {
             this.setState({
               comments: comments,
-              editing: false
+              editing: false,
             });
           });
       });
@@ -303,29 +299,29 @@ class Comments extends React.Component {
     videoId: "",
     date: "",
     note: "",
-    commentsId: this.props.commentsId
+    commentsId: this.props.commentsId,
   };
 
   componentDidMount() {
     fetch("/youtube")
-      .then(res => res.json())
-      .then(comments =>
+      .then((res) => res.json())
+      .then((comments) =>
         // console.log("then " + comments)
         this.setState({
-          comments: comments
+          comments: comments,
         })
       );
   }
 
   deleteComment = (id, index) => {
     fetch("/youtube/" + id, {
-      method: "DELETE"
-    }).then(data => {
+      method: "DELETE",
+    }).then((data) => {
       this.setState({
         comments: [
           ...this.state.comments.slice(0, index),
-          ...this.state.comments.slice(index + 1)
-        ]
+          ...this.state.comments.slice(index + 1),
+        ],
       });
     });
   };
@@ -333,7 +329,7 @@ class Comments extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className='comments'>
+        <div className="comments">
           <h3>Comments:</h3>
           {/* <h3>/////// commentsID: {this.state.commentsId} ////////</h3> */}
           <NewEntryForm data={this.state} commentsId={this.state.commentsId} />

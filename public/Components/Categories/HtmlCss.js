@@ -1,5 +1,3 @@
-console.log("Ciao React Junkies");
-
 class HtmlCss extends React.Component {
   state = {
     baseURL: "https://www.googleapis.com/youtube/v3/playlistItems?part=",
@@ -9,7 +7,7 @@ class HtmlCss extends React.Component {
     apikey: "&key=" + "AIzaSyCIETFoL5hBS644jAwQ7vx_79ogETBt4nE",
     videoIds: [],
     finalURL: "",
-    commentID: "PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU"
+    commentID: "PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU",
   };
 
   componentWillMount = () => {
@@ -21,28 +19,25 @@ class HtmlCss extends React.Component {
       this.state.apikey;
 
     fetch(finalURL)
-      .then(response => response.json())
-      .then(responseJson => {
+      .then((response) => response.json())
+      .then((responseJson) => {
         console.log(responseJson);
         const videoIds = responseJson.items.map(
-          obj =>
+          (obj) =>
             "https://www.youtube.com/embed/" + obj.snippet.resourceId.videoId
         );
         this.setState({ videoIds });
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   };
 
-  // HTML&CSS  = PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU
-
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   };
 
   render() {
-    console.log(this.state.videoIds);
     return (
       <React.Fragment>
         <div className="frames-container">
@@ -55,7 +50,7 @@ class HtmlCss extends React.Component {
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
-              <p>notes?</p>
+                <p>notes?</p>
               </div>
             );
             return frame;

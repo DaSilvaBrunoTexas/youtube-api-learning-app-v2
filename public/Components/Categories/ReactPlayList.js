@@ -1,5 +1,3 @@
-console.log("Ciao React Junkies");
-
 class ReactPlayList extends React.Component {
   state = {
     baseURL: "https://www.googleapis.com/youtube/v3/playlistItems?part=",
@@ -8,12 +6,10 @@ class ReactPlayList extends React.Component {
     playlistId: "playlistId=" + "PLillGF-RfqbaevC84ezBcmlfR54H9RaUr",
     apikey: "&key=" + "AIzaSyCIETFoL5hBS644jAwQ7vx_79ogETBt4nE",
     videoIds: [],
-    finalURL: ""
+    finalURL: "",
   };
 
-  // React Js = PLillGF-RfqbaevC84ezBcmlfR54H9RaUr
-
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ [event.target.id]: event.target.value });
   };
 
@@ -26,21 +22,20 @@ class ReactPlayList extends React.Component {
       this.state.apikey;
 
     fetch(finalURL)
-      .then(response => response.json())
-      .then(responseJson => {
+      .then((response) => response.json())
+      .then((responseJson) => {
         console.log(responseJson);
         const videoIds = responseJson.items.map(
-          obj =>
+          (obj) =>
             "https://www.youtube.com/embed/" + obj.snippet.resourceId.videoId
         );
         this.setState({ videoIds });
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   };
   render() {
-    console.log(this.state.videoIds);
     return (
       <React.Fragment>
         <div className="frames-container">

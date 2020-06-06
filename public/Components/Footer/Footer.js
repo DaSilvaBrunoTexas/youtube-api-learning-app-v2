@@ -1,5 +1,3 @@
-console.log("Ola Mundo");
-
 class Footer extends React.Component {
   render() {
     return (
@@ -9,7 +7,10 @@ class Footer extends React.Component {
           <a href="https://github.com/carol-en" target="_blank">
             <i class="fab fa-github-alt fa-2x"></i>
           </a>
-          <a href="https://www.linkedin.com/in/carolinenolasco/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/carolinenolasco/"
+            target="_blank"
+          >
             <i class="fab fa-linkedin fa-2x"></i>
           </a>
           <a href="http://carolinenolasco.com" target="_blank">
@@ -22,10 +23,7 @@ class Footer extends React.Component {
           <a href="https://github.com/DaSilvaBrunoTexas" target="_blank">
             <i class="fab fa-github-alt fa-2x "></i>
           </a>
-          <a
-            href="https://www.linkedin.com/in/bruno-dasilva/"
-            target="_blank"
-          >
+          <a href="https://www.linkedin.com/in/bruno-dasilva/" target="_blank">
             <i class="fab fa-linkedin fa-2x"></i>
           </a>
           <a href="http://bruno-dasilva.com/" target="_blank">
