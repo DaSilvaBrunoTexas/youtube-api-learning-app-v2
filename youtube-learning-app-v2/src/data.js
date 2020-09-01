@@ -1,0 +1,68 @@
+const COURSES_DATA = [
+  {
+    id: 1,
+    name: "HTML/CSS",
+    path: "htmlCss",
+    icon: "fab fa-html5 fa-2x",
+    playlistId: "PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU",
+    commentID: "PLillGF-RfqbZTASqIqdvm1R5mLrQq79CU",
+  },
+  {
+    id: 2,
+    name: "JavaScript",
+    path: "javaScript",
+    icon: "fab fa-js-square fa-2x",
+    playlistId: "PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX",
+    commentID: "PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX",
+  },
+  {
+    id: 3,
+    name: "React",
+    path: "reactPlaylist",
+    icon: "fab fa-react fa-2x",
+    playlistId: "PLillGF-RfqbaevC84ezBcmlfR54H9RaUr",
+    commentID: "PLillGF-RfqbaevC84ezBcmlfR54H9RaUr",
+  },
+  {
+    id: 4,
+    name: "jQuery",
+    path: "jQueryPlayList",
+    icon: "fa fa-wifi fa-2x",
+    playlistId: "PLillGF-RfqbYJVXBgZ_nA7FTAAEpp_IAc",
+    commentID: "PLillGF-RfqbYJVXBgZ_nA7FTAAEpp_IAc",
+  },
+  {
+    id: 5,
+    name: "Node.js",
+    path: "node",
+    icon: "fab fa-node-js fa-2x",
+    playlistId: "PLillGF-RfqbZ2ybcoD2OaabW2P7Ws8CWu",
+    commentID: "PLillGF-RfqbZ2ybcoD2OaabW2P7Ws8CWu",
+  },
+  {
+    id: 6,
+    name: "PHP",
+    path: "phpList",
+    icon: "fab fa-php fa-2x",
+    playlistId: "PLillGF-RfqbZ3_Xr8do7Q2R752xYrDRAo",
+    commentID: "PLillGF-RfqbZ3_Xr8do7Q2R752xYrDRAo",
+  },
+  {
+    id: 7,
+    name: "Python",
+    path: "python",
+    icon: "fab fa-python fa-2x",
+    playlistId: "PLillGF-RfqbbJYRaNqeUzAb7QY-IqBKRx",
+    commentID: "PLillGF-RfqbbJYRaNqeUzAb7QY-IqBKRx",
+  },
+  {
+    id: 8,
+    name: "Interviews",
+    path: "codeInterview",
+    icon: "fa fa-handshake fa-2x",
+    playlistId: "PLWKjhJtqVAblv09G3sFgRMSeR0jnKQmJ9",
+    commentID: "PLWKjhJtqVAblv09G3sFgRMSeR0jnKQmJ9",
+  },
+];
+
+export default COURSES_DATA;
